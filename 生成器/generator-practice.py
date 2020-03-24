@@ -7,3 +7,4 @@ def triangles():
         yield r
         r = [1] + [r[i]+r[i+1] for i in range(len(p)-1)] + [1]
 
+for n in triangles():

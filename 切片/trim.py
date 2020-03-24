@@ -1,4 +1,4 @@
-def trim(texts):
+def my_trim(texts):
   if len(texts) == 0:
     return texts
   while texts[0] == ' ':
@@ -11,5 +11,8 @@ def trim(texts):
       return texts
   return texts
 
-content = trim(' hello ')
+content = my_trim(' hello  world')
 print(content)
+
+trimContent = 'hello world   '.strip()
+print(trimContent)
