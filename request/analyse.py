@@ -20,17 +20,23 @@ skuinfo = data['skuInfo']
 color = []
 cup_size = []
 
+print(len(skuinfo.values.tolist()))
+
 for i in skuinfo.values.tolist():
-    temp_cup = i[1].split(':')
-    if temp_cup[0] == '杯码':
-        temp_size = temp_cup[1]
-        if '（' in temp_size:
-            size = temp_size.split('（')[0]
-            cup_size.append(size)
-        else:
-            cup_size.append(temp_size)
-        temp_color = i[0].split(':')[1]
-        color.append(temp_color)
+    print(i)
+    try:
+        temp_cup = i[1].split(':')
+        if temp_cup[0] == '杯码':
+            temp_size = temp_cup[1]
+            if '（' in temp_size:
+                size = temp_size.split('（')[0]
+                cup_size.append(size)
+            else:
+                cup_size.append(temp_size)
+            temp_color = i[0].split(':')[1]
+            color.append(temp_color)
+    except:
+        continue
 
 df = pd.DataFrame(color, columns=['color'])
 analyse_color = df['color'].value_counts()
