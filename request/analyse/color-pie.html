@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="eb1b5364dee8445e894eec8dbc3774ff" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_eb1b5364dee8445e894eec8dbc3774ff = echarts.init(
+            document.getElementById('eb1b5364dee8445e894eec8dbc3774ff'), 'white', {renderer: 'canvas'});
+        var option_eb1b5364dee8445e894eec8dbc3774ff = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "pie",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "\u9ed1\u8272",
+                    "value": 360
+                },
+                {
+                    "name": "\u80a4\u8272",
+                    "value": 318
+                },
+                {
+                    "name": "\u7070\u8272",
+                    "value": 300
+                }
+            ],
+            "radius": [
+                "30%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "roseType": "area",
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u9ed1\u8272",
+                "\u80a4\u8272",
+                "\u7070\u8272"
+            ],
+            "selected": {},
+            "type": "scroll",
+            "show": true,
+            "left": "80%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
+    },
+    "title": [
+        {
+            "text": "\u5404\u989c\u8272\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_eb1b5364dee8445e894eec8dbc3774ff.setOption(option_eb1b5364dee8445e894eec8dbc3774ff);
+    </script>
+</body>
+</html>

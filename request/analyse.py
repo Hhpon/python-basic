@@ -14,6 +14,7 @@ discuss = netease['discuss']
 
 data = pd.DataFrame(list(discuss.find()))
 
+
 skuinfo = data['skuInfo']
 
 color = []
@@ -33,6 +34,7 @@ for i in skuinfo.values.tolist():
 
 df = pd.DataFrame(color, columns=['color'])
 analyse_color = df['color'].value_counts()
+print(analyse_color.index)
 
 bar = Bar()
 bar.add_xaxis(analyse_color.index.values.tolist())
@@ -42,7 +44,7 @@ bar.set_global_opts(
     title_opts=opts.TitleOpts(title='颜色分布'),
 
 )
-bar.render_notebook()
+bar.render('request/analyse/color-bar.html')
 
 pie = Pie()
 pie.add("", [list(z) for z in zip(analyse_color.index.values.tolist(
@@ -50,7 +52,7 @@ pie.add("", [list(z) for z in zip(analyse_color.index.values.tolist(
 pie.set_series_opts(label_opts=opts.LabelOpts(formatter='{b}:{d}%'))
 pie.set_global_opts(title_opts=opts.TitleOpts(title='各颜色占比'),
                     legend_opts=opts.LegendOpts(type_="scroll", pos_left="80%", orient="vertical"))
-pie.render_notebook()
+pie.render('request/analyse/color-pie.html')
 
 rege = r'\d'
 cup_size_new = []
@@ -72,7 +74,7 @@ bar.add_yaxis("", analyse_size.values.tolist())
 bar.set_global_opts(
     xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-30)), title_opts=opts.TitleOpts(title='尺寸分布')
 )
-bar.render_notebook()
+bar.render('request/analyse/size-bar.html')
 
 # 星级分布
 star = data['star'].value_counts()
@@ -101,4 +103,5 @@ def gen_wordcloud(data, pic, world_pic):
     wc.to_file(world_pic)
 
 
-gen_wordcloud(low_star_content.values.tolist(), 'request/a.png', 'data_wc.png')
+gen_wordcloud(low_star_content.values.tolist(),
+              'request/money.jpg', 'request/analyse/data_wc.png')
