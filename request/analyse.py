@@ -20,10 +20,7 @@ skuinfo = data['skuInfo']
 color = []
 cup_size = []
 
-print(len(skuinfo.values.tolist()))
-
 for i in skuinfo.values.tolist():
-    print(i)
     try:
         temp_cup = i[1].split(':')
         if temp_cup[0] == '杯码':
@@ -40,7 +37,6 @@ for i in skuinfo.values.tolist():
 
 df = pd.DataFrame(color, columns=['color'])
 analyse_color = df['color'].value_counts()
-print(analyse_color.index)
 
 bar = Bar()
 bar.add_xaxis(analyse_color.index.values.tolist())
@@ -94,9 +90,11 @@ font = 'request/FZNSTJW.TTF'
 
 def gen_wordcloud(data, pic, world_pic):
     tmpstr = ''
+    # print(data)
     for i in range(len(data) - 1):
         tmpstr += data[i]
     pseg = jieba.lcut(tmpstr)
+    print(pseg)
     cut_word = ''
     for i in pseg:
         if i not in stopworld:
@@ -105,6 +103,7 @@ def gen_wordcloud(data, pic, world_pic):
     img_array = np.array(img)
     wc = WordCloud(width=1800, height=1500,
                    background_color='white', font_path=font, mask=img_array)
+    print(cut_word)
     wc.generate(cut_word)
     wc.to_file(world_pic)
 

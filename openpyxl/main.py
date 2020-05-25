@@ -25,9 +25,9 @@ sheet1.append(["学号", "姓名", "检测", "讨论", "成绩"])
 for xx in y:
     try:
         # 提取学号
-        xuehao = xx[0][5:12]
+        xuehao = xx[0][5:13]
         # 提取姓名
-        name = xx[0][12:]
+        name = xx[0][13:]
         # 提取检测
         test = float(xx[1])
         # 提取套论
